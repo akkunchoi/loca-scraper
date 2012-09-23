@@ -44,9 +44,8 @@ class LocaScraper
       
       File.open(@outputfile, "a") do |f|
         info = parse_page(url)
-        f.puts info[:name]
         info[:places].each do |a|
-          f.puts "\t" + a.join("\t")
+          f.puts info[:name] + "\t" + a.join("\t")
         end
         p info[:name]
         sleep @interval
